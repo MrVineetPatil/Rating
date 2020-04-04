@@ -82,7 +82,6 @@ public class SecondActivity extends AppCompatActivity {
                 String mrate = "RATING: "+t;
                 String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                 String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
-                insertItem(mmin, mmax, mrate, currentDate, currentTime);
                 insertItem(String.valueOf(min), String.valueOf(max), String.valueOf(t), currentDate, currentTime);
                 saveData();
                 Intent intent = new Intent(view.getContext(), HistoryActivity.class);
