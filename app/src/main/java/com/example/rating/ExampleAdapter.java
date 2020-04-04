@@ -17,11 +17,18 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
         public TextView mTextViewLine1;
         public TextView mTextViewLine2;
+        public TextView mTextViewLine3;
+        public TextView mTextViewLine4;
+        public TextView mTextViewLine5;
 
         public ExampleViewHolder(View itemView) {
             super(itemView);
             mTextViewLine1 = itemView.findViewById(R.id.textview_line1);
-            mTextViewLine2 = itemView.findViewById(R.id.textview_line_2);
+            mTextViewLine2 = itemView.findViewById(R.id.textview_line2);
+            mTextViewLine3 = itemView.findViewById(R.id.textview_line3);
+            mTextViewLine4 = itemView.findViewById(R.id.textview_line4);
+            mTextViewLine5 = itemView.findViewById(R.id.textview_line5);
+
         }
     }
 

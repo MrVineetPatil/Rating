@@ -4,16 +4,28 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class SecondActivity extends AppCompatActivity {
     SeekBar seekBar;
     TextView t1, t3;
     public Button Submit;
+    ArrayList<exampleItem> mExampleList;
     int step = 1;
     int max = 9;
     int min = 0;
@@ -54,6 +66,32 @@ public class SecondActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 //Toast.makeText(getApplicationContext(),"seekbar touch stopped!", Toast.LENGTH_SHORT).show();
             }
+
+
+            private void saveData() {
+                SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                Gson gson = new Gson();
+                String json = gson.toJson(mExampleList);
+                editor.putString("task list", json);
+                editor.apply();
+            }
+
+            private void setInsertButton() {
+                Button Submit = findViewById(R.id.Submit);
+                Submit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        DateFormat df = new SimpleDateFormat("h:mm a");
+                        String time = df.format(Calendar.getInstance().getTime());
+
+                        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                        insertItem(date.getText().toString(), time.getText().toString());
+                    }
+                });
+            }
+
+
 
 
         });
