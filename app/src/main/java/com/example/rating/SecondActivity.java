@@ -56,7 +56,7 @@ public class SecondActivity extends AppCompatActivity {
                 seekBar.setMax( (max - min) / step );
                 t= min+progress;
                 t1.setText(""+t);
-                Toast.makeText(getApplicationContext(),"seekbar progress: "+progress+"/"+seekBar.getMax(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"seekbar progress: "+progress+"/"+seekBar.getMax(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
