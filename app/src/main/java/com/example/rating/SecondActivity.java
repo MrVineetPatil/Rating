@@ -1,8 +1,11 @@
 package com.example.rating;
 
+import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -10,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -30,12 +34,15 @@ public class SecondActivity extends AppCompatActivity {
     int max = 9;
     int min = 0;
     int t;
+    private TextView Appname;
+    private Toolbar toolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
 
         t1 = findViewById(R.id.t1);
         t3 = findViewById(R.id.t3);
@@ -89,6 +96,8 @@ public class SecondActivity extends AppCompatActivity {
                 view.getContext().startActivity(intent);
             }
         });
+
+       // InitializeFields();
     }
 
     private void loadData() {
@@ -116,4 +125,6 @@ public class SecondActivity extends AppCompatActivity {
     private void insertItem(String line1, String line2, String line3, String line4, String line5) {
         mExampleList.add(new exampleItem(line4, line5,line1, line2, line3));
     }
+    
+
 }
