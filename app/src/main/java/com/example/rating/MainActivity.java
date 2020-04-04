@@ -3,10 +3,13 @@ package com.example.rating;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Application;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 import android.app.Activity;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -33,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements
         s2 = findViewById(R.id.spinner2);
         btn = (Button) findViewById(R.id.btnSubmit);
 
+        final SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        final SharedPreferences.Editor editor = pref.edit();
+
         ArrayList<String> l = new ArrayList<>();
         l.add("Choose between 0-8");
         for (int i = 0; i < 9; i++) l.add("" + i);
@@ -54,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements
                     t1.setVisibility(View.VISIBLE);
                     int pos = position-1;
                     minr=""+pos;
+                    editor.putInt("min_rate", pos);
+                    editor.putInt("max_rate", -1);
+                    editor.apply();
                 }
                 else {
                     s2.setVisibility(View.GONE);
@@ -70,9 +79,11 @@ public class MainActivity extends AppCompatActivity implements
         s2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                int pos = Integer.parseInt(minr)+position;
-                maxr=""+pos;
                 if (position>0) {
+                    int pos = Integer.parseInt(minr)+position;
+                    maxr=""+pos;
+                    editor.putInt("max_rate", pos);
+                    editor.apply();
                     btn.setText("Rated <"+minr+"-"+maxr+">");
                 }
             }
@@ -81,6 +92,21 @@ public class MainActivity extends AppCompatActivity implements
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (pref.getInt("max_rate", -1) != -1) {
+                    Intent intent = new Intent(view.getContext(), SecondActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Please ensure that all the details are filled.", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
 
 
     }
