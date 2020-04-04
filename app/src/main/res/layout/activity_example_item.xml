@@ -12,7 +12,7 @@
         android:layout_margin="4dp">
 
         <TextView
-            android:id="@+id/textview_line3"
+            android:id="@+id/textview_Min"
             android:layout_width="109dp"
             android:layout_height="31dp"
             android:layout_alignParentStart="true"
@@ -33,7 +33,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textview_line1"
+            android:id="@+id/textview_Date"
             android:layout_width="107dp"
             android:layout_height="24dp"
             android:layout_alignParentStart="true"
@@ -54,7 +54,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textview_line2"
+            android:id="@+id/textview_Time"
             android:layout_width="wrap_content"
             android:layout_height="23dp"
             android:layout_alignParentStart="true"
@@ -75,7 +75,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textview_line4"
+            android:id="@+id/textview_Max"
             android:layout_width="113dp"
             android:layout_height="31dp"
             android:layout_alignParentStart="true"
@@ -96,7 +96,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textview_line5"
+            android:id="@+id/textview_Rating"
             android:layout_width="131dp"
             android:layout_height="122dp"
             android:layout_alignParentStart="true"
@@ -112,7 +112,7 @@
             android:layout_marginRight="11dp"
             android:layout_marginBottom="12dp"
             android:gravity="center_horizontal"
-            android:text="Index"
+            android:text="Rating"
             android:textSize="40sp"
             android:textStyle="bold" />
 

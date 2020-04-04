@@ -15,19 +15,20 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     private ArrayList<exampleItem> mExampleList;
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextViewLine1;
-        public TextView mTextViewLine2;
-        public TextView mTextViewLine3;
-        public TextView mTextViewLine4;
-        public TextView mTextViewLine5;
+
+        public TextView Date;
+        public TextView Time;
+        public TextView Min;
+        public TextView Max;
+        public TextView Rating;
 
         public ExampleViewHolder(View itemView) {
             super(itemView);
-            mTextViewLine1 = itemView.findViewById(R.id.textview_line1);
-            mTextViewLine2 = itemView.findViewById(R.id.textview_line2);
-            mTextViewLine3 = itemView.findViewById(R.id.textview_line3);
-            mTextViewLine4 = itemView.findViewById(R.id.textview_line4);
-            mTextViewLine5 = itemView.findViewById(R.id.textview_line5);
+            Date = itemView.findViewById(R.id.textview_Date);
+            Time = itemView.findViewById(R.id.textview_Time);
+            Min = itemView.findViewById(R.id.textview_Min);
+            Max = itemView.findViewById(R.id.textview_Max);
+            Rating = itemView.findViewById(R.id.textview_Rating);
 
         }
     }
@@ -47,8 +48,11 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     public void onBindViewHolder(ExampleViewHolder holder, int position) {
         exampleItem currentItem = mExampleList.get(position);
 
-        holder.mTextViewLine1.setText(currentItem.getLine1());
-        holder.mTextViewLine2.setText(currentItem.getLine2());
+        holder.Date.setText(currentItem.getLine1());
+        holder.Time.setText(currentItem.getLine2());
+        holder.Min.setText(currentItem.getLine3());
+        holder.Max.setText(currentItem.getLine4());
+        holder.Rating.setText(currentItem.getLine5());
     }
 
     @Override
