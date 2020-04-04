@@ -79,10 +79,11 @@ public class SecondActivity extends AppCompatActivity {
                 loadData();
                 String mmin = "MIN: "+min;
                 String mmax = "MAX: "+max;
-                String mrate = "RATING: "+t;
+               // String mrate = "RATING: "+t;
                 String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                 String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
-                insertItem(String.valueOf(min), String.valueOf(max), String.valueOf(t), currentDate, currentTime);
+                insertItem(mmin, mmax,String.valueOf(t), currentDate, currentTime);
+               // insertItem(String.valueOf(min), String.valueOf(max), String.valueOf(t), currentDate, currentTime);
                 saveData();
                 Intent intent = new Intent(view.getContext(), HistoryActivity.class);
                 view.getContext().startActivity(intent);

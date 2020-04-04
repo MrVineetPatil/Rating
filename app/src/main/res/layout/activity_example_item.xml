@@ -91,9 +91,8 @@
             android:gravity="center_horizontal"
             android:layout_centerVertical="true"
             android:layout_centerInParent="true"
-            android:textAlignment="center"
             android:text="Rating"
-            android:textSize="40sp"
+            android:textSize="80sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
