@@ -53,10 +53,11 @@
                     android:layout_height="20dp"
                     android:text="Min"
                     android:textAlignment="center"
-                    android:textColor="@android:color/black"
+                    android:textColor="#8B0000"
                     android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:gravity="center_horizontal" />
+                    android:textStyle="italic"
+                    android:gravity="center_horizontal"
+                    />
 
                 <TextView
                     android:id="@+id/textview_Max"
@@ -65,11 +66,12 @@
                     android:textAlignment="center"
                     android:text="Max"
                     android:layout_alignParentEnd="true"
-                    android:textColor="@android:color/black"
+                    android:textColor="#8B0000"
                     android:textSize="14sp"
-                    android:textStyle="bold"
+                    android:textStyle="italic"
                     android:layout_alignParentRight="true"
-                    android:gravity="center_horizontal" />
+                    android:gravity="center_horizontal"
+                    />
 
             </RelativeLayout>
         </LinearLayout>
@@ -95,7 +97,8 @@
             android:layout_centerInParent="true"
             android:text="Rating"
             android:textSize="80sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#3CB371"/>
 
     </RelativeLayout>
 
