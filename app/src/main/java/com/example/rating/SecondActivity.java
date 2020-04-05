@@ -94,8 +94,10 @@ public class SecondActivity extends AppCompatActivity {
                 String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
                 insertItem(mmin, mmax, String.valueOf(t), currentDate, currentTime);
                 saveData();
-                Intent intent = new Intent(view.getContext(), SecondActivity.class);
-                view.getContext().startActivity(intent);
+              //  Intent intent = new Intent(view.getContext(), SecondActivity.class);
+              //  view.getContext().startActivity(intent);
+                t1.setText(""+min);
+                seekBar.setProgress(0);
             }
         });
 
