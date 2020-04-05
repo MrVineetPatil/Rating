@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,6 +55,9 @@ public class SecondActivity extends AppCompatActivity {
         t1.setText(""+min);
         t3.setText("Min Rate: "+min+", Max Rate: "+max);
 
+        ImageView Historybtn = findViewById(R.id.history);
+        ImageView Backbtn = findViewById(R.id.back);
+
         sb = (Button) findViewById(R.id.Submit);
         seekBar=(SeekBar)findViewById(R.id.seekBar);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -86,13 +90,29 @@ public class SecondActivity extends AppCompatActivity {
                 loadData();
                 String mmin = "MIN: "+min;
                 String mmax = "MAX: "+max;
-               // String mrate = "RATING: "+t;
                 String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                 String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
-                insertItem(mmin, mmax,String.valueOf(t), currentDate, currentTime);
-               // insertItem(String.valueOf(min), String.valueOf(max), String.valueOf(t), currentDate, currentTime);
+                insertItem(mmin, mmax, String.valueOf(t), currentDate, currentTime);
                 saveData();
+                Intent intent = new Intent(view.getContext(), SecondActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
+
+
+
+        Historybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), HistoryActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
+
+        Backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), MainActivity.class);
                 view.getContext().startActivity(intent);
             }
         });
